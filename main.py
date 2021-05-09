@@ -27,10 +27,7 @@ while len(guessed_states) < 50:
         tracker.write(f"{correct_state.state.item()}", align="center", font=("Arial", 10, "normal"))
         guessed_states.append(correct_state.state.item())
 
-states_to_learn = []
-for state in state_list:
-    if state not in guessed_states:
-        states_to_learn.append(state)
+states_to_learn = [state for state in state_list if state not in guessed_states]
 
 data_dict = {
     "states to learn": states_to_learn
